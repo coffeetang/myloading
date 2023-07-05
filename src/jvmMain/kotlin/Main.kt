@@ -15,27 +15,37 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.WindowPosition
+import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 
 
 fun main() = application {
-    Window(onCloseRequest = ::exitApplication) {
-        Column (
-            modifier = Modifier.fillMaxSize().background(Color.Black),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Row(modifier = Modifier.fillMaxWidth().fillMaxHeight(0.5f), verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceAround) {
-                PointLoading(modifier = Modifier.size(120.dp))
-                RingLoading(modifier = Modifier.size(120.dp))
+    Window(
+        onCloseRequest = ::exitApplication,
+        state = WindowState(
+            size = DpSize(600.dp, 600.dp),
+            position = WindowPosition(Alignment.TopCenter)
+        )
+    )  {
+        Column(modifier = Modifier.fillMaxSize()) {
+            Row(modifier = Modifier.fillMaxWidth().height(200.dp)) {
+                TwoArcLoading(modifier = Modifier.size(200.dp,200.dp))
+                ThreeBallLoading(modifier = Modifier.size(200.dp,200.dp))
+                TwoBallLoading(modifier = Modifier.size(200.dp,200.dp))
             }
-            Row(modifier = Modifier.fillMaxWidth().fillMaxHeight(), verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.SpaceAround) {
-                TailLoading(modifier = Modifier.size(120.dp))
-                WindCarLoading(120.dp,160.dp)
+            Row(modifier = Modifier.fillMaxWidth().height(200.dp)) {
+                HeartbeatLoading(modifier = Modifier.size(200.dp,200.dp))
+                ScrewLoading(modifier = Modifier.size(200.dp,200.dp))
+                RadiationLoading(modifier = Modifier.size(200.dp,200.dp))
+            }
+            Row(modifier = Modifier.fillMaxWidth().height(200.dp)) {
+                RecPointLoading(modifier = Modifier.size(200.dp,200.dp))
+                JumpPointLoading(modifier = Modifier.size(200.dp,200.dp))
+                RainbowLoading(modifier = Modifier.size(200.dp,200.dp))
             }
         }
     }
