@@ -1,51 +1,49 @@
-import androidx.compose.animation.core.*
-import androidx.compose.material.MaterialTheme
-import androidx.compose.desktop.ui.tooling.preview.Preview
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
+import loading.*
 
 
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
         state = WindowState(
-            size = DpSize(600.dp, 600.dp),
+            size = DpSize(800.dp, 800.dp),
             position = WindowPosition(Alignment.TopCenter)
         )
     )  {
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxSize().background(Color.Black)) {
             Row(modifier = Modifier.fillMaxWidth().height(200.dp)) {
-                TwoArcLoading(modifier = Modifier.size(200.dp,200.dp))
-                ThreeBallLoading(modifier = Modifier.size(200.dp,200.dp))
-                TwoBallLoading(modifier = Modifier.size(200.dp,200.dp))
+                PointLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                RingLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                TailLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                WindCarLoading(200.dp,200.dp)
             }
             Row(modifier = Modifier.fillMaxWidth().height(200.dp)) {
-                HeartbeatLoading(modifier = Modifier.size(200.dp,200.dp))
-                ScrewLoading(modifier = Modifier.size(200.dp,200.dp))
-                RadiationLoading(modifier = Modifier.size(200.dp,200.dp))
+                TwoArcLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                ThreeBallLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                TwoBallLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                HeartbeatLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
             }
             Row(modifier = Modifier.fillMaxWidth().height(200.dp)) {
-                RecPointLoading(modifier = Modifier.size(200.dp,200.dp))
-                JumpPointLoading(modifier = Modifier.size(200.dp,200.dp))
-                RainbowLoading(modifier = Modifier.size(200.dp,200.dp))
+                ScrewLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                RadiationLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                RecPointLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                JumpPointLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+            }
+            Row(modifier = Modifier.fillMaxWidth().height(200.dp)) {
+                RainbowLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                FlowerLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                BeehiveLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
+                JiheLoading(modifier = Modifier.width(200.dp).fillMaxHeight())
             }
         }
     }

@@ -1,3 +1,5 @@
+package loading
+
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -18,10 +20,11 @@ import kotlin.math.sin
 
 @Composable
 fun PointLoading(modifier: Modifier){
-    val mSize = remember { mutableStateOf(Size(0f, 0f)) }
-    val centerX = mSize.value.center.x
-    val centerY = mSize.value.center.y
-    val radius = centerX.coerceAtLeast(centerY)
+    val width = remember { mutableStateOf(800f) }
+    val height = remember { mutableStateOf(800f) }
+    val centerX = width.value/2
+    val centerY = height.value/2
+    val radius = centerX.coerceAtLeast(centerY)/2
     val angleList = Array(9) { 40f * it }
     val radiusList = Array(9) {
         3f * it
@@ -37,7 +40,8 @@ fun PointLoading(modifier: Modifier){
         )
     )
     Canvas(modifier = modifier) {
-        mSize.value = size
+        width.value = size.width
+        height.value = size.height
         for (index in angleList.indices) {
             var mIndex = listIndex.value+index
             if(mIndex > 8){

@@ -1,3 +1,5 @@
+package loading
+
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
@@ -20,7 +22,7 @@ fun TailLoading(modifier: Modifier) {
     val mSize = remember { mutableStateOf(Size(0f, 0f)) }
     val centerX = mSize.value.center.x
     val centerY = mSize.value.center.y
-    val radius = centerX.coerceAtLeast(centerY)
+    val radius = centerX.coerceAtLeast(centerY)/2
     val transition = rememberInfiniteTransition()
     val angle = transition.animateFloat(
         0f, 360f, animationSpec = InfiniteRepeatableSpec(

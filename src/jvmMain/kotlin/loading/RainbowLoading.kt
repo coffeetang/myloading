@@ -1,3 +1,5 @@
+package loading
+
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background

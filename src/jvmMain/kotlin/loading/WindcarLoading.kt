@@ -1,3 +1,5 @@
+package loading
+
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -28,7 +30,7 @@ fun WindCarLoading(width: Dp, height: Dp) {
             modifier = Modifier.padding(top = windSize / 4).width(5.dp).fillMaxHeight().align(Alignment.Center)
                 .background(Color.Yellow)
         )
-        Windcar(modifier = Modifier.size(width).rotate(angle.value))
+        Windcar(modifier = Modifier.size(width*4/5).align(Alignment.Center).rotate(angle.value))
     }
 }
 @Composable

@@ -1,3 +1,5 @@
+package loading
+
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
@@ -98,7 +100,7 @@ fun Ring(modifier: Modifier,startIndex:Int) {
     val mSize = remember { mutableStateOf(Size(0f, 0f)) }
     val centerX = mSize.value.center.x
     val centerY = mSize.value.center.y
-    val radius = centerX.coerceAtLeast(centerY)
+    val radius = centerX.coerceAtLeast(centerY)/2
     val index = remember { mutableStateOf(startIndex) }
     val colorList = listOf(
         Color(0xffFF1D1D), Color(0xffFF8723), Color(0xffFFBA23),
