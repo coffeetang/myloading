@@ -17,12 +17,16 @@ fun JiheLoading(modifier: Modifier) {
     val height = remember { mutableStateOf(800f) }
     val centerX = width.value / 2
     val centerY = height.value / 2
-    val count = 30*3
+    val count = 30*2
     val unitAngle = 360f / count
     val baseRadius = 10f
     val transition = rememberInfiniteTransition()
-    val angleDiff = transition.animateFloat(60f, 300f, animationSpec = InfiniteRepeatableSpec(
-            tween(5000), repeatMode = RepeatMode.Reverse
+    val angleDiff = transition.animateFloat(0f, 300f, animationSpec = InfiniteRepeatableSpec(
+//            tween(5000), repeatMode = RepeatMode.Reverse
+        keyframes {
+            durationMillis=5000
+            300f.at(5000)
+        }, repeatMode = RepeatMode.Reverse
     ))
 
     val xList = Array(count) { pointX(baseRadius, centerX, it * unitAngle) }
@@ -70,8 +74,8 @@ fun JiheLoading(modifier: Modifier) {
         for (pa in pathList) {
             drawPath(path = pa, brush = Brush.verticalGradient(colorList),
                     style = Stroke(width = 5f, cap = StrokeCap.Round,
-                    pathEffect = PathEffect.dashPathEffect(floatArrayOf(5f, 5f))
-                    ), blendMode = BlendMode.Plus)
+                    pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 5f))
+                    ))
         }
     }
 }
